@@ -108,32 +108,52 @@ propertiesCopy code
 
    The project includes a global exception handling mechanism to handle common error scenarios. Two custom exception classes, KeyNotFoundException and BadRequestException, are provided to represent specific error situations. The GlobalExceptionHandler class captures and handles these exceptions, returning appropriate HTTP responses with relevant error details.
 
-### Database Views
-  The project includes two database views:
+## Database Views
 
-1.  all_employees_view: A view that retrieves the ID, email, first name, and last name of all employees.
-sqlCopy code
+The project includes two database views:
 
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `testdb2`.`all_employees_view` AS SELECT `testdb2`.`employees`.`id` AS `id`, `testdb2`.`employees`.`email` AS `email`, `testdb2`.`employees`.`first_name` AS `first_name`, `testdb2`.`employees`.`last_name` AS `last_name` FROM `testdb2`.`employees`; 
+### all_employees_view
 
-2.  all_companies_view: A view that retrieves the ID, address, and name of all companies.
-sqlCopy code
+A view that retrieves the ID, email, first name, and last name of all employees.
 
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `testdb2`.`all_companies_view` AS SELECT `testdb2`.`companies`.`id` AS `id`, `testdb2`.`companies`.`address` AS `address`, `testdb2`.`companies`.`name` AS `name` FROM `testdb2`.`companies`; 
+```sql
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `testdb2`.`all_employees_view` AS
+SELECT `testdb2`.`employees`.`id` AS `id`,
+       `testdb2`.`employees`.`email` AS `email`,
+       `testdb2`.`employees`.`first_name` AS `first_name`,
+       `testdb2`.`employees`.`last_name` AS `last_name`
+FROM `testdb2`.`employees`;
+all_companies_view
+A view that retrieves the ID, address, and name of all companies.
 
-### Stored Procedures
-
+sql
+Copy code
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `testdb2`.`all_companies_view` AS
+SELECT `testdb2`.`companies`.`id` AS `id`,
+       `testdb2`.`companies`.`address` AS `address`,
+       `testdb2`.`companies`.`name` AS `name`
+FROM `testdb2`.`companies`;
+Stored Procedures
 The project includes two stored procedures:
 
-1.  add_employee: A stored procedure that adds a new employee to the employees table.
-sqlCopy code
+add_employee
+A stored procedure that adds a new employee to the employees table.
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_employee`(IN first_name VARCHAR(50), IN last_name VARCHAR(50), IN email VARCHAR(100)) BEGIN INSERT INTO employees (first_name, last_name, email) VALUES (first_name, last_name, email); END 
+sql
+Copy code
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_employee`(IN first_name VARCHAR(50), IN last_name VARCHAR(50), IN email VARCHAR(100))
+BEGIN
+  INSERT INTO employees (first_name, last_name, email) VALUES (first_name, last_name, email);
+END
+insert_company
+A stored procedure that adds a new company to the companies table.
 
-2.  insert_company: A stored procedure that adds a new company to the companies table.
-sqlCopy code
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_company`(IN name VARCHAR(255), IN address VARCHAR(255)) BEGIN INSERT INTO companies (name, address) VALUES (name, address); END 
+sql
+Copy code
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_company`(IN name VARCHAR(255), IN address VARCHAR(255))
+BEGIN
+  INSERT INTO companies (name, address) VALUES (name, address);
+END
 
 ### Contributing
 
