@@ -76,18 +76,21 @@ Follow the steps below to set up and run the project locally.
 
 2. Open the project in IntelliJ IDEA.
 Configuration
+
 1. Configure the MySQL database connection in the application.properties file located in the src/main/resources directory.
 propertiesCopy code
  1. spring.datasource.url=jdbc:mysql://localhost:3306/your-database-name 
  2. spring.datasource.username=your-username 
  3. spring.datasource.password=your-password 
 
-Build and Run
+### Build and Run
+
 1. Build the project using Maven. Open the Maven toolbar in IntelliJ IDEA, navigate to Lifecycle, and click on install.
 2. Run the application using the Spring Boot Maven plugin. Open the Maven toolbar in IntelliJ IDEA, navigate to Plugins, spring-boot, and click on spring-boot:run.
 3. Access the API endpoints using tools like cURL, Postman, or a web browser.
 
-API Endpoints
+### API Endpoints
+
  1. The API exposes the following endpoints:
 
 * GET api/employees: Get all employees.
@@ -101,36 +104,38 @@ API Endpoints
 * PUT api/companies/{id}: Update an existing company.
 * DELETE api/companies/{id}: Delete a company by ID.
 
-Global Exception Handling
+### Global Exception Handling
 
    The project includes a global exception handling mechanism to handle common error scenarios. Two custom exception classes, KeyNotFoundException and BadRequestException, are provided to represent specific error situations. The GlobalExceptionHandler class captures and handles these exceptions, returning appropriate HTTP responses with relevant error details.
 
-Database Views
+### Database Views
   The project includes two database views:
-* all_employees_view: A view that retrieves the ID, email, first name, and last name of all employees.
+
+1.  all_employees_view: A view that retrieves the ID, email, first name, and last name of all employees.
 sqlCopy code
 
 CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `testdb2`.`all_employees_view` AS SELECT `testdb2`.`employees`.`id` AS `id`, `testdb2`.`employees`.`email` AS `email`, `testdb2`.`employees`.`first_name` AS `first_name`, `testdb2`.`employees`.`last_name` AS `last_name` FROM `testdb2`.`employees`; 
 
-* all_companies_view: A view that retrieves the ID, address, and name of all companies.
+2.  all_companies_view: A view that retrieves the ID, address, and name of all companies.
 sqlCopy code
 
 CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `testdb2`.`all_companies_view` AS SELECT `testdb2`.`companies`.`id` AS `id`, `testdb2`.`companies`.`address` AS `address`, `testdb2`.`companies`.`name` AS `name` FROM `testdb2`.`companies`; 
 
-Stored Procedures
+### Stored Procedures
 
 The project includes two stored procedures:
-* add_employee: A stored procedure that adds a new employee to the employees table.
+
+1.  add_employee: A stored procedure that adds a new employee to the employees table.
 sqlCopy code
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_employee`(IN first_name VARCHAR(50), IN last_name VARCHAR(50), IN email VARCHAR(100)) BEGIN INSERT INTO employees (first_name, last_name, email) VALUES (first_name, last_name, email); END 
 
-* insert_company: A stored procedure that adds a new company to the companies table.
+2.  insert_company: A stored procedure that adds a new company to the companies table.
 sqlCopy code
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_company`(IN name VARCHAR(255), IN address VARCHAR(255)) BEGIN INSERT INTO companies (name, address) VALUES (name, address); END 
 
-Contributing
+### Contributing
 
   Contributions to this project are welcome. If you encounter any issues, have suggestions for improvements, or would like to add new features, please feel free to submit a pull request or open an issue on the project's GitHub repository.
 
