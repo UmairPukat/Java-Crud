@@ -1,9 +1,3 @@
-# JAVA Rest Api
-
-
-
-
-
 
 ## Table of Contents
 
