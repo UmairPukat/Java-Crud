@@ -91,16 +91,16 @@ propertiesCopy code
 
  1. The API exposes the following endpoints:
 
-* GET api/employees: Get all employees.
-* GET api/employees/{id}: Get an employee by ID.
-* POST api/employees: Create a new employee.
-* PUT api/employees/{id}: Update an existing employee.
-* DELETE api/employees/{id}: Delete an employee by ID.
-* GET api/companies: Get all companies.
-* GET api/companies/{id}: Get a company by ID.
-* POST api/companies: Create a new company.
-* PUT api/companies/{id}: Update an existing company.
-* DELETE api/companies/{id}: Delete a company by ID.
+* GET /api/v1/employees: Get all employees.
+* GET /api/v1/employees/{id}: Get an employee by ID.
+* POST /api/v1/employees: Create a new employee.
+* PUT /api/v1/employees/{id}: Update an existing employee.
+* DELETE /api/v1/employees/{id}: Delete an employee by ID.
+* GET /api/v1/companies: Get all companies.
+* GET /api/v1/companies/{id}: Get a company by ID.
+* POST /api/v1/companies: Create a new company.
+* PUT /api/v1/companies/{id}: Update an existing company.
+* DELETE /api/v1/companies/{id}: Delete a company by ID.
 
 ### Global Exception Handling
 
