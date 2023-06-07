@@ -74,7 +74,7 @@ Follow the steps below to set up and run the project locally.
 2. Open the project in IntelliJ IDEA.
 Configuration
 
-1. Configure the MySQL database connection in the application.properties file located in the src/main/resources directory.
+1. Configure the MySQL database connection in the `application.properties` file located in the `src/main/resources` directory.
 propertiesCopy code
 ```sql
   spring.datasource.url=jdbc:mysql://localhost:3306/your-database-name 
