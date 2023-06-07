@@ -76,10 +76,11 @@ Configuration
 
 1. Configure the MySQL database connection in the application.properties file located in the src/main/resources directory.
 propertiesCopy code
- 1. spring.datasource.url=jdbc:mysql://localhost:3306/your-database-name 
- 2. spring.datasource.username=your-username 
- 3. spring.datasource.password=your-password 
-
+```sql
+  spring.datasource.url=jdbc:mysql://localhost:3306/your-database-name 
+  spring.datasource.username=your-username 
+  spring.datasource.password=your-password 
+```
 ### Build and Run
 
 1. Build the project using Maven. Open the Maven toolbar in IntelliJ IDEA, navigate to Lifecycle, and click on install.
