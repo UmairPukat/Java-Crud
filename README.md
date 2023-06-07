@@ -112,7 +112,7 @@ propertiesCopy code
 
 The project includes two database views:
 
-### all_employees_view
+1.  Employee View
 
 A view that retrieves the ID, email, first name, and last name of all employees.
 
@@ -123,38 +123,43 @@ SELECT `testdb2`.`employees`.`id` AS `id`,
        `testdb2`.`employees`.`first_name` AS `first_name`,
        `testdb2`.`employees`.`last_name` AS `last_name`
 FROM `testdb2`.`employees`;
-all_companies_view
+```
+2. Company View
+
 A view that retrieves the ID, address, and name of all companies.
 
-sql
-Copy code
+
+```sql
 CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `testdb2`.`all_companies_view` AS
 SELECT `testdb2`.`companies`.`id` AS `id`,
        `testdb2`.`companies`.`address` AS `address`,
        `testdb2`.`companies`.`name` AS `name`
 FROM `testdb2`.`companies`;
-Stored Procedures
+```
+### Stored Procedures
+
 The project includes two stored procedures:
 
-add_employee
+1. Add Employee
+
 A stored procedure that adds a new employee to the employees table.
 
-sql
-Copy code
+```sql
 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_employee`(IN first_name VARCHAR(50), IN last_name VARCHAR(50), IN email VARCHAR(100))
 BEGIN
   INSERT INTO employees (first_name, last_name, email) VALUES (first_name, last_name, email);
 END
-insert_company
+```
+2. Add Company
+
 A stored procedure that adds a new company to the companies table.
 
-sql
-Copy code
+```sql
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_company`(IN name VARCHAR(255), IN address VARCHAR(255))
 BEGIN
   INSERT INTO companies (name, address) VALUES (name, address);
 END
-
+```
 ### Contributing
 
   Contributions to this project are welcome. If you encounter any issues, have suggestions for improvements, or would like to add new features, please feel free to submit a pull request or open an issue on the project's GitHub repository.
